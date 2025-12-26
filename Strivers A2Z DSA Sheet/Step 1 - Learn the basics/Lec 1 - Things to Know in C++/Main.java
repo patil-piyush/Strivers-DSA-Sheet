@@ -25,13 +25,14 @@ import java.util.*;
 public class Main {
     public static void main(String args[]) {
         // Your Code Here
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); // Input the number n
-        
-        int i = 10; // Start from 10 for reverse order
-        while (i >= 1) {
-            System.out.print(n * i + " "); // Print n * i
-            i--; // Decrement the counter
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt(); // Input the number n
+            
+            int i = 10; // Start from 10 for reverse order
+            while (i >= 1) {
+                System.out.print(n * i + " "); // Print n * i
+                i--; // Decrement the counter
+            }
         }
     }
 }
