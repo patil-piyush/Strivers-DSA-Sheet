@@ -1,0 +1,37 @@
+// Last updated: 8/7/2026, 7:17:03 PM
+class Solution {
+public:
+    void solveSudoku(vector<vector<char>>& board) {
+        solve(board);
+    }
+
+    bool solve(vector<vector<char>>& board){
+        for(int i=0; i<board.size(); i++){
+            for(int j=0; j<board[0].size(); j++){
+                if(board[i][j]=='.'){
+                    for(char c='1'; c<='9'; c++){
+                        if(isvalid(board, i, j, c)){
+                            board[i][j] = c;
+                            if(solve(board)==true)
+                                return true;
+                            else
+                                board[i][j] = '.';
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    bool isvalid(vector<vector<char>>& board, char row, char col, char c){
+        for(int i=0; i<9; i++){
+            if(board[row][i] == c) return false;
+            if(board[i][col] == c) return false;
+            if(board[3*(row/3)+(i/3)][3*(col/3)+i%3] == c) return false;
+        }
+        return true;
+    }
+};
