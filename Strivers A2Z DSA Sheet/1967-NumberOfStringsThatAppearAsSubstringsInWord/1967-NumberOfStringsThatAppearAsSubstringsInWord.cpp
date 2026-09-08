@@ -1,0 +1,12 @@
+// Last updated: 9/8/2026, 2:31:33 PM
+class Solution {
+public:
+    int numOfStrings(vector<string>& patterns, string word) {
+        int n = patterns.size();
+        int cnt=0;
+        for(int i=0; i<n; i++){
+            if(word.contains(patterns[i])) cnt++;
+        }
+        return cnt;
+    }
+};
